@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 }); */
 
-Route::apiResource('v1/posts', App\Http\Controllers\Api\V1\PostController::class)->only('show');
-/* ->only('show') se usa para decir que solo habilite una ruta */
+Route::apiResource('v1/posts', App\Http\Controllers\Api\V1\PostController::class)
+->only(['index','show', 'destroy']);
+/* ->only('show') se usa para decir que solo habilite una ruta pero se pueden habilitar mas rutas al ponerlas dentro de [] */
 
 /* Ruta de prueba en el postman o en el rested addon de firefox http://localhost/apilaravel9/public/api/v1/posts/1 */
