@@ -1,17 +1,15 @@
 <?php
-/* Este controlador fue creado con este comando: php artisan make:controller Api/V1/PostController --api --model=Post
-se crea el controlador y las carpetas para ponerlo dentro de ellas.
---api significa que se creen los metodos correctos de api en el controlador como un controlador resource.
---model=Post significa que se conecte con el modelo que ya existe llamado Post. */
 
-namespace App\Http\Controllers\Api\V1;
+namespace App\Http\Controllers\Api\V2;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Http\Request;
-//agregados:
-use App\Http\Resources\V1\PostResource;
-use Symfony\Component\HttpFoundation\Response;//se usa para retornar HTTP_NO_CONTENT
+
+
+use App\Http\Resources\V2\PostResource;
+use App\Http\Resources\V2\PostCollection;
+use Symfony\Component\HttpFoundation\Response;
 
 class PostController extends Controller
 {
@@ -23,7 +21,6 @@ class PostController extends Controller
     public function index()
     {
         //
-        return PostResource::collection(Post::latest()->paginate());
     }
 
     /**
@@ -45,9 +42,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //1
-        // return ($post);
-        return new PostResource($post);
+        //
     }
 
     /**
@@ -71,9 +66,5 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
-        $post->delete();
-        return response()->json([
-            'message' => 'Post Deleted'
-        ], Response::HTTP_NO_CONTENT);//regresa el codigo del suceso en este caso 204 que significa borrado exitoso
     }
 }
