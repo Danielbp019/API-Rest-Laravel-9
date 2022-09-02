@@ -16,4 +16,8 @@ class Post extends Model
     public function getPublishedAtAttribute(){
         return $this->created_at->format('Y-m-d');
     }/* se trae el campo created_at de la db y se muestra en la vista con $post->published_at usando getPublishedAtAttribute de la funcion */
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }/* V2, user pertene a User class*/
 }
