@@ -26,3 +26,5 @@ Route::apiResource('v1/posts', PostV1::class)
 Route::apiResource('v2/posts', PostV2::class)
 ->only(['index','show'])
 ->middleware('auth:sanctum');//se agrega esta linea para proteger la ruta y se copia en ambas rutas.
+
+Route::post('login', [App\Http\Controllers\Api\LoginController::class,'login']);
