@@ -21,6 +21,7 @@ class PostController extends Controller
     public function index()
     {
         //
+        return new PostCollection(Post::latest()->paginate());//se aplican estilos a los datos de forma masiva a todos.
     }
 
     /**

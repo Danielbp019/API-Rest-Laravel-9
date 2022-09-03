@@ -19,6 +19,6 @@ class PostResource extends JsonResource
             'slug'=>$this->slug,
             'excerpt'=>$this->excerpt,
             'content'=>$this->content
-        ];
+        ];//se traducen los nombres de los campos, izquierda datos para el frontend y derecha datos de la base de datos. Tambien se toca el modelo para agregar los campos virtuales
     }
 }
