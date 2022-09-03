@@ -12,7 +12,9 @@ class LoginController extends Controller
 {
     //
     public function login(Request $request){
+
         $this->validateLogin($request);
+        
         //correcto
         if (Auth::attempt($request->only('email', 'password'))){
             return response()->json([

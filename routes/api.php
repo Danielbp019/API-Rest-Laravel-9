@@ -28,3 +28,4 @@ Route::apiResource('v2/posts', PostV2::class)
 ->middleware('auth:sanctum');//se agrega esta linea para proteger la ruta y se copia en ambas rutas.
 
 Route::post('login', [App\Http\Controllers\Api\LoginController::class,'login']);
+//http://localhost/apilaravel9/public/api/login
